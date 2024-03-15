@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for main content */
+}
+
+/* Adjustments for top menu */
+.d-flex.flex-column.flex-shrink-0.bg-body-tertiary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+/* Adjustments for main content */
+.container {
+    margin-top: 4.5rem; /* Height of the top menu */
+}
+
+/* Additional styles for full-height menu items */
+.nav-link {
+    flex-grow: 1;
+    text-align: center;
+}
+.btn-group{
+    display: flex;
+    padding-left: 38%;
+}
