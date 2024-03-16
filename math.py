@@ -40,8 +40,8 @@ if answer7 == "x=5":
     print("Верен отговор!")
 else:
     print(" Грешен отговор! Отговорът е 'x=5'")
-
-answer8=input("1/4*x+6=9 ")
+ 
+answer8=input("1/4*x+6=9")
 if answer8 == "x=12":
     print("Верен отговор!")
 else:
