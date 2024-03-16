@@ -1,34 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .leaderboard {
+        width: 80%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    h1 {
+        text-align: center;
+        background-color: #606060;
+        color: white;
+        padding: 20px 0;
+        margin: 0;
+    }
+    table {
+        width: 100%;
+        text-align: center;
+    }
+    th, td {
+        padding: 15px 10px;
+    }
+    th {
+        background-color: #919191;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Leaderboard</h1>
-        <table id="leaderboard">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Time Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be added dynamically -->
-            </tbody>
-        </table>
-        <form id="user-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="timepoints">Time Points:</label>
-            <input type="number" id="timepoints" name="timepoints" required>
-            <button type="submit">Add User</button>
-        </form>
-    </div>
-    <script src="java-main1.js"></script>
+<div class="leaderboard">
+    <h1>Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard">
+            <!-- Leaderboard content will be dynamically filled here -->
+        </tbody>
+    </table>
+</div>
+<script>
+    const leaderboardData = [
+        { name: 'Даниел', points: 100 },
+        { name: 'Борис', points: 80 },
+        { name: 'Велина', points: 120 },
+    ];
+    
+    leaderboardData.sort((a, b) => b.points - a.points); // sort data based on points
+    
+    const leaderboardElem = document.getElementById('leaderboard');
+    leaderboardData.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${player.name}</td>
+            <td>${player.points}</td>
+        `;
+        leaderboardElem.appendChild(row);
+    });
+</script>
 </body>
 </html>
